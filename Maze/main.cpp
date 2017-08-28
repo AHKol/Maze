@@ -21,10 +21,11 @@ private:
 public:
    nodeContol() {}
    ~nodeContol() {}
-   nodeContol(Maze mazeInput) {
-      for (int i = 0; i < mazeInput.height(); i++) {
-         for (int j = 0; j < mazeInput.width(); j++) {
-            m_nodeArray[i].push_back(node(mazeInput.mazeArray()[i][j], i, j));
+   nodeContol(Maze* mazeInput) {
+      m_nodeArray.resize(mazeInput->height());
+      for (int i = 0; i < mazeInput->height(); i++) {
+         for (int j = 0; j < mazeInput->width(); j++) {
+            m_nodeArray[i].push_back(node(mazeInput->mazeArray()[i][j], i, j));
          }
       }
    }
@@ -42,6 +43,6 @@ int main() {
 
    Maze mazeA("Maze.bmp");
    mazeA.print();
-   nodeContol nc(mazeA);
+   nodeContol nc(&mazeA);
    return 0;
 }
