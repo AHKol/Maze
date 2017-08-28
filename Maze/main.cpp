@@ -1,18 +1,26 @@
 #include <vector>
+#include <iostream>
 #include "Maze.h"
 //Main + Tester
 //Node class and node control
+//todo: node constructor
+//include N S E W bools, and intersection setter, use loop after construction in nodeControl
+
 using namespace std;
 class node {
 private:
    bool m_isWall;
+   bool m_intersection;
    int m_xAxis;
    int m_yAxis;
 public:
    node(){}
    ~node() {}
-   node(bool isSpace, int x, int y) {
-      
+   node(bool isSpace, int x, int y) {      
+   }
+   void printNode() {
+      if (m_isWall) cout << "X ";
+      else cout << "  ";
    }
 };
 class nodeContol {
@@ -29,6 +37,11 @@ public:
          }
       }
    }
+   // loop 2d
+      //if not wall
+         //if N valid, check set N
+         //incl all other directions
+
 };
 class path {
 
